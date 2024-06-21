@@ -25,7 +25,7 @@ A aplicação é estruturada seguindo uma arquitetura limpa e modular, facilitan
 ### Directory Structure / Estrutura de Diretórios
 
 ```
-/chat-app
+/SOCIAL-MEDIA
 │
 ├── /cmd
 │ └── /server
@@ -69,8 +69,8 @@ To install and run the application, follow these steps:
 
 Para instalar e executar a aplicação, siga estes passos:
 
-1. Clone the repository: `[git clone https://github.com/yourusername/chat-app](https://github.com/MateusMSoares/Social-Media)`
-   Clone o repositório: `[git clone https://github.com/yourusername/chat-app](https://github.com/MateusMSoares/Social-Media)`
+1. Clone the repository: `https://github.com/MateusMSoares/Social-Media`
+   Clone o repositório: `https://github.com/MateusMSoares/Social-Media`
    
 2. Navigate to the project directory: `cd chat-app`
    Navegue até o diretório do projeto: `cd chat-app`
