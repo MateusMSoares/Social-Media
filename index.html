@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat em Tempo Real</title>
+</head>
+<body>
+    <h1>Chat em Tempo Real</h1>
+    <div id="chat"></div>
+    <input type="text" id="username" placeholder="Username">
+    <input type="text" id="message" placeholder="Message">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        const chat = document.getElementById('chat');
+        const usernameInput = document.getElementById('username');
+        const messageInput = document.getElementById('message');
+
+        // Extract group ID from URL
+        const groupId = window.location.pathname.split('/')[1].replace('grupo', '');
+        const ws = new WebSocket(`ws://${window.location.host}/ws?grupo=${groupId}`);
+
+        ws.onmessage = function(event) {
+            const msg = JSON.parse(event.data);
+            chat.innerHTML += `<p><strong>${msg.username}:</strong> ${msg.message}</p>`;
+        };
+
+        function sendMessage() {
+            const message = {
+                username: usernameInput.value,
+                message: messageInput.value,
+                grupo: parseInt(groupId, 10)
+            };
+            ws.send(JSON.stringify(message));
+            messageInput.value = '';
+        }
+    </script>
+</body>
+</html>
